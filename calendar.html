@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calendario de Turnos</title>
+
+  <!-- FullCalendar (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      /* Fondo de muro */
+      background-image: url("assets/imagenes/muro.jpg");
+      background-size: cover;       /* Ajusta la imagen al tamaño de la ventana */
+      background-position: center;  /* Centra la imagen */
+      background-attachment: fixed; /* Efecto muro fijo */
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 20px;
+      color: white;  /* el título en blanco para resaltar sobre el muro */
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+
+    #calendar {
+      max-width: 700px;
+      margin: 30px auto;
+      background: white; /* Blanco con transparencia */
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <h2>Calendario de Turnos</h2>
+  <div id="calendar"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const calendarEl = document.getElementById('calendar');
+
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        locale: 'es',
+        selectable: true,
+        editable: false,
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        events: [
+          { title: 'Turno ocupado', start: '2025-09-05' },
+          { title: 'Turno ocupado', start: '2025-09-08T10:00:00' }
+        ],
+        dateClick: function(info) {
+          const confirmar = confirm(`¿Quieres tomar un turno el ${info.dateStr}?`);
+          if (confirmar) {
+            calendar.addEvent({
+              title: 'Mi turno reservado',
+              start: info.date,
+              allDay: true
+            });
+            alert("✅ Turno reservado correctamente.");
+          }
+        }
+      });
+
+      calendar.render();
+    });
+  </script>
+</body>
+</html>
