@@ -115,6 +115,11 @@ h1 {
     text-decoration: underline;
 }
 
+.enlace {
+    color: #c76161;
+    text-decoration: underline;
+}
+
 .footer-index {
     width: 100%;
     background: #a0cabd;
