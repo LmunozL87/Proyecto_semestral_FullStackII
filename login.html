@@ -8,7 +8,7 @@
 <body>
     <div class="login-container">
         <h2>Iniciar Sesión</h2>
-        <form>
+        <form id="login">
             <label for="usuario">Correo electrónico:</label>
             <input type="text" id="usuario" name="usuario" required title="Ingresa tu correo electrónico">
             <br>
@@ -24,8 +24,11 @@
     </footer>
     <script src="assets/main.js"></script> <!--se importa el archivo js-->
 <script>
-  document.querySelector('form').addEventListener('submit', function (e) {
-    const correo = document.getElementById('usuario').value;
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('login').addEventListener('submit', function (e) {
+    const correo = document.getElementById('usuario').value.trim();
+    const clave = document.getElementById('password').value.trim();
     //document: todo el HTML
     //querySelector: selecciona el primer formulario en el html
     //addEventListener: escucha el evento submit
@@ -38,6 +41,16 @@
       e.preventDefault(); // Detiene el envío del formulario
       alert("Correo electrónico inválido. Usa el formato usuario@dominio.com");//mensaje de alerta
     }
+
+    if (!validarContaseña(clave)) {
+      e.preventDefault();
+      alert('La contraseña debe tener al menos 8 caracteres, incluyendo mayúsculas, minúsculas, números y alguno de estos símbolos @,$,!,%,*,?,&.');
+      document.getElementById('clave').focus();
+      return;
+    }
+    e.preventDefault();
+    window.location.href = 'calendar.html';
+    });
   });
 </script>
 
