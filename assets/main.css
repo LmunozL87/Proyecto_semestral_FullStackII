@@ -220,4 +220,12 @@ h1 {
     color: #333;
 }
 
+select {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+}
+
+
 
