@@ -22,5 +22,24 @@
     <footer class="footer">
         ¿Necesitas ayuda? <a href="mailto:soporte@tuturno.com">Haz clic aquí</a>
     </footer>
+    <script src="assets/main.js"></script> <!--se importa el archivo js-->
+<script>
+  document.querySelector('form').addEventListener('submit', function (e) {
+    const correo = document.getElementById('usuario').value;
+    //document: todo el HTML
+    //querySelector: selecciona el primer formulario en el html
+    //addEventListener: escucha el evento submit
+    //function(e): función que se ejecuta cuando se envía el formulario
+    //const correo: variable que almacena el valor del campo correo
+    //getElementById: selecciona el elemento por su id (usuario)
+    //value: obtiene el valor del campo
+
+    if (!validarCorreo(correo)) { //si el correo no es válido
+      e.preventDefault(); // Detiene el envío del formulario
+      alert("Correo electrónico inválido. Usa el formato usuario@dominio.com");//mensaje de alerta
+    }
+  });
+</script>
+
 </body>
 </html>
