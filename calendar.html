@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Calendario de Turnos</title>
+  <link rel="stylesheet" href="assets/main.css">
+
 
   <!-- FullCalendar -->
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet"><!--Paquete CSS de FullCalendar -->
@@ -47,6 +49,26 @@
 </head>
 <body>
   <h1>Calendario de Turnos</h1>
+  <!-- Menú desplegable para Calendar -->
+<nav class="calendar-bar">
+  <div class="dropdown">
+    <button class="dropdown-toggle" id="menuCal" aria-haspopup="true" aria-expanded="false">
+      Opciones ▾
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="menuCal">
+      <li><button data-action="today">Hoy</button></li>
+      <li class="divider"></li>
+      <li><button data-view="dayGridMonth">Vista Mes</button></li>
+      <li><button data-view="timeGridWeek">Vista Semana</button></li>
+      <li><button data-view="timeGridDay">Vista Día</button></li>
+      <!-- Ejemplo de filtro (opcional)
+      <li class="divider"></li>
+      <li><button data-filter="mios">Solo mis turnos</button></li>
+      <li><button data-filter="todos">Todos</button></li>
+      -->
+    </ul>
+  </div>
+</nav>
   <div id="calendar"></div>
 
     <!-- FullCalendar -->
@@ -77,5 +99,7 @@
       calendar.render();
     });
   </script>
+  <footer class="footer">
+    ¿Necesitas ayuda? <a href="mailto:soporte@tuturno.com">Haz clic aquí</a>
 </body>
 </html>

@@ -1,3 +1,13 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main { flex: 1; }
+
+
 /* =========================
    Base & Variables
 ========================= */
@@ -6,10 +16,74 @@
   --color-accento:#c76161;
   --color-texto:#333;
   --color-blanco:#fff;
+  --celeste:#a0cabd;
+  --celeste-hover:#0288d1;
+  --texto:#333;
+  --blanco:#fff;
+  --borde:#e5e7eb;
   --sombra:0 2px 8px rgba(0,0,0,.08);
   --radio-xl:30px;
   --radio-xxl:50px;
 }
+/* Barra superior del calendario */
+.calendar-bar{
+  max-width: 900px;
+  margin: 20px auto 10px;
+  display: flex;
+  padding: 0 8px;
+  justify-content: flex-end;  /* 👈 alinea a la derecha */
+    
+
+}
+
+/* Dropdown */
+.dropdown{ position: relative; }
+.dropdown-toggle{
+  background: var(--celeste);
+  color: var(--blanco);
+  border: 0;
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color .2s;
+}
+.dropdown-toggle:hover{ background: var(--celeste-hover); }
+
+.dropdown-menu{
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  min-width: 190px;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  padding: 6px;
+  list-style: none;
+  margin: 0;
+  display: none; /* se muestra por JS */
+  z-index: 50;
+}
+.dropdown-menu li{ margin: 0; }
+.dropdown-menu .divider{
+  border-top: 1px solid var(--borde);
+  margin: 6px 4px;
+}
+.dropdown-menu button{
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  color: var(--texto);
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.dropdown-menu button:hover{
+  background: #f3f4f6;
+}
+
+
 
 *{ box-sizing:border-box; }
 
@@ -17,7 +91,7 @@ body{
   margin:0;
   padding:0;
   /* Ajusta la ruta según dónde esté este CSS */
-  background-image:url('../assets/imagenes/muro.jpg');
+  background-image:url('imagenes/muro.jpg');
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
@@ -180,12 +254,43 @@ select{
   background:var(--color-primario);
   color:var(--color-texto);
   text-align:center;
+  height: 35px;
   padding:.7rem 0;
-  position:downer;
-  left:0;
-  bottom:0;
   font-size:1rem;
-  z-index:9999;
+}
+/* Footer unificado y sin desfases */
+footer.footer{
+  width: 100%;
+  background: #a0cabd;        /* tu verde */
+  color: #333;
+  text-align: center;
+  min-height: 60px;            /* alto consistente */
+  padding: 12px 16px;          /* separa texto del borde */
+  display: flex;               /* centra vertical/horizontal */
+  align-items: center;
+  justify-content: center;
+  /* Asegura que no quede fijado si antes lo estaba */
+  position: static;
+  left: auto;
+  bottom: auto;
+  z-index: auto;
+  border: 0;                   /* por si algún reset puso bordes */
+}
+
+/* clave: eliminar el margen del <p> que genera la “línea” */
+footer.footer p{
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Enlaces del footer */
+footer.footer a{
+  color: inherit;              /* mismo color que el texto del footer */
+  text-decoration: underline;
+  transition: color .2s;
+}
+footer.footer a:hover{
+  color: #0c3b4d;              /* un tono más oscuro al pasar */
 }
 
 /* =========================
