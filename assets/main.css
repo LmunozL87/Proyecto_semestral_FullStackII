@@ -16,10 +16,7 @@ main { flex: 1; }
   --color-accento:#c76161;
   --color-texto:#333;
   --color-blanco:#fff;
-  --celeste:#a0cabd;
   --celeste-hover:#0288d1;
-  --texto:#333;
-  --blanco:#fff;
   --borde:#e5e7eb;
   --sombra:0 2px 8px rgba(0,0,0,.08);
   --radio-xl:30px;
@@ -39,8 +36,8 @@ main { flex: 1; }
 /* Dropdown */
 .dropdown{ position: relative; }
 .dropdown-toggle{
-  background: var(--celeste);
-  color: var(--blanco);
+  background: var(--color-primario);
+  color: var(--color-blanco);
   border: 0;
   border-radius: 10px;
   padding: 8px 12px;
@@ -54,7 +51,7 @@ main { flex: 1; }
   right: 0;
   top: calc(100% + 6px);
   min-width: 190px;
-  background: var(--blanco);
+  background: var(--color-blanco);
   border: 1px solid var(--borde);
   border-radius: 10px;
   box-shadow: 0 8px 24px rgba(0,0,0,.08);
@@ -62,7 +59,7 @@ main { flex: 1; }
   list-style: none;
   margin: 0;
   display: none; /* se muestra por JS */
-  z-index: 50;
+  z-index: 1000;
 }
 .dropdown-menu li{ margin: 0; }
 .dropdown-menu .divider{
@@ -74,7 +71,7 @@ main { flex: 1; }
   text-align: left;
   background: transparent;
   border: 0;
-  color: var(--texto);
+  color: var(--color-texto);
   padding: 8px 10px;
   border-radius: 8px;
   cursor: pointer;
@@ -90,7 +87,6 @@ main { flex: 1; }
 body{
   margin:0;
   padding:0;
-  /* Ajusta la ruta según dónde esté este CSS */
   background-image:url('imagenes/muro.jpg');
   background-size:cover;
   background-position:center;
@@ -222,10 +218,9 @@ h1{ text-align:center; }
 
 /* Contenedor del calendario */
 .calendar-page #calendar{
-  /* si lo ves chico, puedes ampliar (ver nota abajo) */
   max-width: 900px;       /* antes: 700px */
   margin: 30px auto;
-  background: #fff;
+  background: var(--color-blanco);
   padding: 12px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,.3);
@@ -247,8 +242,8 @@ h1{ text-align:center; }
   top: 0;
   left: 0;
   height: 100vh;           /* de arriba a abajo */
-  width: 220px;            /* delgada */
-  background: #fff;        /* fondo blanco */
+  width: 200px;            /* delgada */
+  background: var(--color-blanco);        
   border-right: 1px solid #e5e7eb;
   padding: 1rem 0.9rem;
   box-shadow: var(--sombra, 0 2px 8px rgba(0,0,0,.08));
@@ -307,9 +302,9 @@ h1{ text-align:center; }
 
 
 .page-title{
-  background: var(--color-primario);         /* fondo blanco */
-  color: var(--color-texto);              /* texto oscuro para contraste */
-  padding: .6rem 1rem;      /* respiro alrededor del texto */
+  background: var(--color-primario);         
+  color: var(--color-texto);              
+  padding: .6rem 1rem;      
   border-radius: 10px;      
   display: inline-block;    /* para que el fondo abrace al texto */
   box-shadow: 0 2px 8px rgba(0,0,0,.08); /* sutil sombra */
@@ -372,27 +367,29 @@ select{
   height: 35px;
   padding:.7rem 0;
   font-size:1rem;
+  z-index: 2000;        /* mayor que el sidebar */
+
 }
 /* Footer unificado y sin desfases */
 footer.footer{
   width: 100%;
-  background: #a0cabd;        /* tu verde */
+  background: #a0cabd;        
   color: #333;
   text-align: center;
   min-height: 60px;            /* alto consistente */
-  padding: 12px 16px;          /* separa texto del borde */
+  padding: 12px 16px;          
   display: flex;               /* centra vertical/horizontal */
   align-items: center;
   justify-content: center;
-  /* Asegura que no quede fijado si antes lo estaba */
-  position: static;
+  
+  position: relative;
   left: auto;
   bottom: auto;
-  z-index: auto;
+  z-index: 2000;
   border: 0;                   /* por si algún reset puso bordes */
 }
 
-/* clave: eliminar el margen del <p> que genera la “línea” */
+
 footer.footer p{
   margin: 0;
   line-height: 1.4;
@@ -405,7 +402,7 @@ footer.footer a{
   transition: color .2s;
 }
 footer.footer a:hover{
-  color: #0c3b4d;              /* un tono más oscuro al pasar */
+  color: #0c3b4d;              
 }
 
 /* =========================
