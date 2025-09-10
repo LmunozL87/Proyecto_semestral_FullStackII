@@ -205,6 +205,42 @@ h1{ text-align:center; }
   transition:color .2s;
 }
 .info-links a:hover{ color:var(--color-accento); }
+.calendar-page{
+  /* Fondo con muro */
+  background-image: url('imagenes/muro.jpg');
+  background-size: cover;        /* cubre ventana */
+  background-position: center;   /* centra imagen */
+  background-attachment: fixed;  /* efecto fijo (ojo mobile) */
+}
+
+/* Título de la página del calendario */
+.calendar-page h1{
+  text-align: center;
+  margin-top: 20px;
+  color: #000;
+}
+
+/* Contenedor del calendario */
+.calendar-page #calendar{
+  /* si lo ves chico, puedes ampliar (ver nota abajo) */
+  max-width: 900px;       /* antes: 700px */
+  margin: 30px auto;
+  background: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.3);
+}
+
+/* Título del FullCalendar */
+.calendar-page .fc-toolbar-title{
+  color: #000;
+  text-shadow: 1px 1px 4px rgba(0,0,0,.7);
+}
+
+/* Evita problemas del background fixed en móviles */
+@media (max-width: 768px){
+  .calendar-page{ background-attachment: scroll; }
+}
 
 .info-links2{
   position: fixed;         /* pegada a la ventana */
