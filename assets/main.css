@@ -206,6 +206,85 @@ h1{ text-align:center; }
 }
 .info-links a:hover{ color:var(--color-accento); }
 
+.info-links2{
+  position: fixed;         /* pegada a la ventana */
+  top: 0;
+  left: 0;
+  height: 100vh;           /* de arriba a abajo */
+  width: 220px;            /* delgada */
+  background: #fff;        /* fondo blanco */
+  border-right: 1px solid #e5e7eb;
+  padding: 1rem 0.9rem;
+  box-shadow: var(--sombra, 0 2px 8px rgba(0,0,0,.08));
+  text-align: left;
+  overflow-y: auto;        /* scroll si se llena */
+  z-index: 1000;
+}
+
+/* Empuja el contenido para que no quede debajo del sidebar */
+.main-content{
+  margin-left: 220px;      /* igual al ancho del menú */
+  padding: 1rem;
+}
+
+/* Encabezado del menú con icono */
+.info-links2 .menu-header{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 .75rem 0;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+.info-links2 .menu-icon{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.info-links2 h3{
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-hover, #0288d1);
+  line-height: 1;
+}
+
+/* Lista de enlaces */
+.info-links2 .menu-list{
+  list-style: none;
+  padding: 0;
+  margin: .5rem 0 0 0;
+}
+.info-links2 .menu-list li + li{ margin-top: 6px; }
+.info-links2 .menu-list a{
+  display: block;
+  padding: .5rem .6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color .2s, color .2s;
+}
+.info-links2 .menu-list a:hover{
+  background: #f3f4f6;
+  color: var(--color-hover, #0288d1);
+}
+
+
+.page-title{
+  background: var(--color-primario);         /* fondo blanco */
+  color: var(--color-texto);              /* texto oscuro para contraste */
+  padding: .6rem 1rem;      /* respiro alrededor del texto */
+  border-radius: 10px;      
+  display: inline-block;    /* para que el fondo abrace al texto */
+  box-shadow: 0 2px 8px rgba(0,0,0,.08); /* sutil sombra */
+  margin: 20px auto;   
+  font-size: 25px;   /* antes suele ser 16px */
+  line-height: 1.5;     /* separarlo de lo de arriba/abajo */
+}
+h1.page-title{ text-align: center; } /* centra el texto dentro del h1 */
+
+
+
 /* =========================
    Login / Formularios
 ========================= */

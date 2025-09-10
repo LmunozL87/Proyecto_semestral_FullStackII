@@ -34,7 +34,7 @@
       max-width: 700px;
       margin: 30px auto;
       background: white;
-      padding: 15px;
+      padding: 10px;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       
@@ -48,26 +48,21 @@
   </style>
 </head>
 <body>
-  <h1>Calendario de Turnos</h1>
-  <!-- Menú desplegable para Calendar -->
-<nav class="calendar-bar">
-  <div class="dropdown">
-    <button class="dropdown-toggle" id="menuCal" aria-haspopup="true" aria-expanded="false">
-      Opciones ▾
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="menuCal">
-      <li><button data-action="today">Hoy</button></li>
-      <li class="divider"></li>
-      <li><button data-view="dayGridMonth">Vista Mes</button></li>
-      <li><button data-view="timeGridWeek">Vista Semana</button></li>
-      <li><button data-view="timeGridDay">Vista Día</button></li>
-      <!-- Ejemplo de filtro (opcional)
-      <li class="divider"></li>
-      <li><button data-filter="mios">Solo mis turnos</button></li>
-      <li><button data-filter="todos">Todos</button></li>
-      -->
-    </ul>
+  <div class="page-title">Calendario de Turnos</div>
+
+<div class="info-links2">
+  <div class="menu-header">
+    <img src="assets/imagenes/calend.jpeg" alt="" class="menu-icon" aria-hidden="true">
+    <h3>Menú</h3>
   </div>
+
+  <ul class="menu-list">
+    <li><a href="#">Mis turnos</a></li>
+    <li><a href="#">Editar Perfil</a></li>
+    <li><a href="index.html">Cerrar sesión</a></li>
+  </ul>
+</div>
+</div>
 </nav>
   <div id="calendar"></div>
 
