@@ -219,8 +219,9 @@ h1{ text-align:center; }
 
 /* Contenedor del calendario */
 .calendar-page #calendar{
-  max-width: 900px;       /* antes: 700px */
-  margin: 30px auto;
+  max-width: 900px;
+  min-height: 600px;     
+  margin: 0 auto;
   background: var(--color-blanco);
   padding: 12px;
   border-radius: 10px;
