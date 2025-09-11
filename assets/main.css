@@ -28,7 +28,7 @@ main { flex: 1; }
   margin: 20px auto 10px;
   display: flex;
   padding: 0 8px;
-  justify-content: flex-end;  /* 👈 alinea a la derecha */
+  justify-content: flex-end;  /* alinea a la derecha */
     
 
 }
@@ -91,6 +91,7 @@ body{
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
+  background-attachment: fixed; /*permite que la imagen de fondo se vea en toda la pagina al hacer scroll*/
   color:var(--color-texto);
   font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
 }
